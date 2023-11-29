@@ -1,8 +1,8 @@
 ########################## A-B TESTING  ###########################
-# A customer started using a new bidding method instead of the maximum bidding method they used before.
-# We wanted to test the conversion rate of the new method.
-# A-B testing is used for this aim.
-# There are dataset that consist of purchase counts for two methods.
+#The customer stopped using the maximum bidding method and started using a new one.
+#We were interested in seeing how well the new method worked at turning people into customers.
+# This is done with A-B testing.
+# There are two sets of data that contain purchasing counts.
 
 
 ########################## Importing Library and Settings  ###########################
@@ -13,7 +13,7 @@ from scipy.stats import shapiro, levene, ttest_ind, mannwhitneyu
 import os
 import statsmodels.stats.api as sms
 
-path = "C:\\Users\\hseym\\OneDrive\\Masaüstü\\Miuul\\datasets"
+path = "/Users/cemiloksuz/PycharmProjects/EuroTechMiullDataScience/week_6_A-B Testing.py"
 os.chdir(path)
 
 pd.set_option('display.max_columns', None)
@@ -155,17 +155,17 @@ ab_testing(df, "Conversion_Rate")
 ab_testing(df, "Earning_Per_Purchase")
 
 # 1--
-# Shapiro and Levene test are used for assumptions testing.
-# In the result of these tests, p value is calculated greater than 0.05 for "Purchase" variable.
-# Thus, two independent samples t-test is used for hypothesis test.
-# Results of this test are shown that H0 hypothesis not rejected because p value is greater than 0.05.
-# So, there is no significant difference between two groups statistically.
-# The customer can continue to use maximum bidding method.
+# Shapiro and Levene test assumptions.
+# These tests provide a "Purchase" variable p value larger than 0.05.
+# Thus, hypothesis testing uses two independent samples t-test.
+# This test shows H0 hypothesis is not rejected because p > 0.05.
+# So, statistically, two groups are similar.
+# Customers can use maximum bidding.
 # 2--
-# Same assumption tests are used for "Conversion_Rate" and "Earning_Per_Purchase" variables.
-# In the result of these tests, p value is calculated smaller than 0.05 for these variables.
-# Thus, mann-whitney u test that is a nonparametric test is used for hypothesis test.
-# Results of this test are shown that H0 hypothesis is rejected because p value is smaller than 0.05.
-# So,there is a significant difference between two groups statistically.
-# Means of "Conversion_Rate" and "Earning_Per_Purchase" are greater for test group.
-# We can say to customer that average bidding method is more profitable.
+# "Conversion_Rate" and "Earning_Per_Purchase" employ the same assumption tests.
+# These tests provide p values below 0.05 for these factors.
+# Thus, hypothesis testing uses nonparametric mann-whitney u test.
+# This test rejects H0 because p is less than 0.05.
+# In statistical terms, two groups differ significantly.
+# Test group had higher "Conversion_Rate" and "Earning_Per_Purchase" means.
+# We can tell customers average bidding is more profitable.
