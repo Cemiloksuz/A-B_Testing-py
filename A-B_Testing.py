@@ -1,6 +1,6 @@
 ########################## A-B TESTING  ###########################
-#The customer stopped using the maximum bidding method and started using a new one.
-#We were interested in seeing how well the new method worked at turning people into customers.
+# The customer stopped using the maximum bidding method and started using a new one.
+# We were interested in seeing how well the new method worked at turning people into customers.
 # This is done with A-B testing.
 # There are two sets of data that contain purchasing counts.
 
